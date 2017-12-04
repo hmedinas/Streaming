@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    line-height: 20px;
+}
+
+.fondo {
+    background-color: transparent;
+    width: 100%;
+    margin: 0px;
+    border-style: none;
+    border-width: 0px;
+    position: absolute;
+    background-image: url(img/background-conference-1.jpg);
+}
+
+.img-fondo {
+    /* width: 2950.4px; height: 700px; opacity: 1; position: relative;*/
+}
+
+.fondo_ {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    position: absolute;
+    /* visibility: hidden; */
+}
+
+#fondo {
+    height: 100%;
+}
+
+.header {
+    height: 100px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content img {
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: lighter;
+    padding-bottom: 10px;
+    font-family: "Open Sans", "Arial", sans-serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: lighter;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: lighter;
+    /* padding-bottom: 10px; */
+    font-family: "Open Sans", "Arial", sans-serif;
+    /* margin-top: 20px; */
+    /* margin-bottom: 10px; */
+    color: rgba(0, 0, 0, 0.7);
+    /* font-weight: lighter; */
+    /* margin-bottom: 20px; */
+    /* text-align: center; */
+    /* font-weight: lighter; */
+}
+
+
+/* para el reloj*/
+
+@media (min-width: 1200px) {
+    .clock-container {
+        width: 1170px;
+    }
+}
+
+@media (min-width: 992px) {
+    .clock-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 768px) {
+    .clock-container {
+        width: 750px;
+    }
+}
+
+.clock-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.clock-container {
+    text-align: center;
+}
+
+.clock-container:after {
+    clear: both;
+}
+
+.clock-container:before,
+.clock-container:after {
+    content: " ";
+    display: table;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+.clock-item {
+    display: table-cell;
+    padding-right: 25px;
+}
+
+.clock-item .text .type-time {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.clock-item .text {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.clock-item .wrap {
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.102);
+    color: #fff;
+    height: 246px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 246px;
+    text-align: center;
+}
+
+.clock-item .wrap .inner {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 13px solid #343539;
+    height: 220px;
+    margin: 12px;
+    position: relative;
+    width: 220px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.text .val {
+    font-family: "Open Sans", "Arial", sans-serif;
+    font-size: 74px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.clock-item .text {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.text p {
+    margin: 0 0 10px;
+}
+
+.color-avance {
+    height: 100%;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.verde {
+    border-color: rgb(58, 226, 58);
+}
+
+.rojo {
+    border-color: rgb(242, 63, 63);
+}
+
+.blanco {
+    border-color: white;
+}
