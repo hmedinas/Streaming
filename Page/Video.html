@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>..:: DIMATICA ::..</title>
+    <link rel="stylesheet" href="style/css/main.css" />
+    <link rel="stylesheet" href="style/css/animate.css" />
+    <script src="script/lib/jquery-3.2.1.min.js"></script>
+    <style>
+        body {
+            background-image: url('img/fondo.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            /* background-size: 100%; */
+        }
+        
+        #videos {
+            padding: 4%;
+            width: 92% !important;
+        }
+    </style>
+</head>
+
+<!-- oncontextmenu="return false" onselectstart="return false" ondragstart="return false" -->
+
+<body>
+    <main>
+        <!-- TAMAÑO DE MANO Y DE VIDEO REMOTO: DEFINIDOS CON JAVASCRIPT(QUITARLOS O CAMBIARLOS) -->
+        <div id="videos">
+            <!-- VIDEO CAMARA LOCAL -->
+            <video id="remoteVideo" autoplay class="animated fadeIn slow"></video>
+            <!-- VIDEO CAMARA REMOTA -->
+            <!-- DEBE IR OCULTA, SI SE QUITA NO FUNCIONA -->
+            <video id="localVideo" autoplay muted class="animated fadeIn slow" hidden></video><br>
+            <!-- </div> -->
+            <button onclick="redirect()">Ir a Gracias</button>
+        </div>
+        <br>
+        <div id="mano">
+            <button id="miBoton" class="animated fadeIn slow">
+                <!-- MANO TEMPORAL -->
+                <img src="https://cdn2.iconfinder.com/data/icons/hawcons-gesture-stroke/32/icon_3_high_five-512.png">
+            </button>
+        </div>
+        <!-- PROVISIONAL -->
+    </main>
+
+
+</body>
+
+
+<script>
+    var timer, timePressed = 0;
+    var estaPreparado = false;
+    var estaDespachado = false;
+
+    function redirectFinish() {
+        location.href = "Gracias.html";
+    }
+</script>
+<script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
+<script src="script/const.js"></script>
+
+<script>
+    Proy.CocaCola.Readmensaje();
+
+
+    //Tamaño de video
+    var altoNavegador = $(window).height();
+    var altoLocalVideo = $('#localVideo').height();
+    console.log(altoNavegador + "/" + altoLocalVideo);
+
+    $('#remoteVideo').height((altoNavegador) * 0.93 + "px");
+    $('#mano img').height((altoLocalVideo) * 3 + "px");
+
+
+    //Evento de mano
+    var myBtn = document.getElementById('miBoton');
+
+
+    //CONTROL DE TIEMPO PULSACION MANO
+    myBtn.addEventListener('touchstart', function(e) {
+        timePressed = 0;
+        $("#dialogMano").css("display", "none");
+        $(".dialogBlack").css("opacity", "1");
+        if (timePressed < 1000) {
+            console.log("PREPARE");
+            // dialogMano();
+            estaPreparado = true;
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Prepare);
+        }
+        timer = setInterval(function() {
+            //aqui tienes el control de cuanto tiempo el boton esta presionado
+            timePressed += 1;
+            if (timePressed > 5) {
+                // alert("RECOJA BEBIDA");
+                Proy.CocaCola.SendMessage(Proy.TipMensaje.Dispacher);
+                console.log("DISPACHER");
+                if (estaDespachado) {
+                    console.log("RECOJA BEBIDA");
+                    redirectFinish();
+                    Proy.CocaCola.SendMessage(Proy.TipMensaje.Finish);
+                    clearInterval(timer);
+                    timePressed = 0;
+                    estaDespachado = false;
+                    estaPreparado = false;
+                }
+            }
+        }, 1000);
+    });
+
+    myBtn.addEventListener('touchend', function(e) {
+        clearInterval(timer);
+        estaPreparado = false;
+        estaDespachado = false;
+        timePressed = 0;
+    });
+
+    function redirect() {
+        location.href = "Gracias.html";
+    }
+</script>
+<!-- <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script> -->
+<script src="script/lib/adapter.js"></script>
+
+<script src="script/main.js"></script>
+
+
+</html>

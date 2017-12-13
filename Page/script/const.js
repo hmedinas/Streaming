@@ -1,14 +1,23 @@
-var _URL = 'innova.vservers.es:8080';
-var _Device = '';
-var socketes = io.connect('http://innova.vservers.es:8081');
+var _URL = 'innova.vservers.es:8090';
+var _Device = '5678';
+var socketes = io.connect('http://innova.vservers.es:8090');
 var WebService = 'http://127.0.0.1:5000/api/'
+var estaPulsadoContacto = false;
 
-TipMensaje = {
+var Proy = Proy || {};
+
+Proy.TipMensaje = {};
+Proy.CocaCola = {};
+
+Proy.TipMensaje = {
     Saludo: 'Saludo',
+    Video: 'Video',
     Prepare: 'Prepare',
-    Dispacher: 'Dispacehr'
+    Dispacher: 'Dispacher',
+    Finish: 'Finish'
 };
-CocaCola = {
+
+Proy.CocaCola = {
     URL: _URL,
     Device: _Device,
     SendMessage: function(msg) {
@@ -22,27 +31,48 @@ CocaCola = {
             if (s[0] == _Device) {
                 return;
             } else {
-                if (s[1] == TipMensaje.Saludo)
-                    CocaCola.Saludo();
-                if (s[1] == TipMensaje.Prepare)
-                    CocaCola.Saludo();
-                if (s[1] == TipMensaje.Dispacher)
-                    CocaCola.Saludo();
+                if (s[1] == Proy.TipMensaje.Saludo)
+                    Proy.CocaCola.Saludo();
+                if (s[1] == Proy.TipMensaje.Video)
+                    Proy.CocaCola.Video();
+                if (s[1] == Proy.TipMensaje.Prepare)
+                    Proy.CocaCola.Prepare();
+                if (s[1] == Proy.TipMensaje.Dispacher)
+                    Proy.CocaCola.Dispacher();
+                if (s[1] == Proy.TipMensaje.Finish)
+                    Proy.CocaCola.Finish();
 
             }
         });
 
     },
     Saludo: function() {
-        //AGREGAR tu codigo 
+        //AGREGAR tu codigo
+        dialogIniciar();
+    },
+    Video: function() {
+        //AGREGAR tu codigo
+        redirect();
     },
     Prepare: function() {
-        $getJSON(WebService + 'StremingPrepare', onSuccess, onError);
-        //AGREGAR tu codigo 
+        //AGREGAR tu codigo
+        console.log("preparado");
+        if (!estaPreparado) {
+            dialogMano();
+        }
+
+        // $getJSON(WebService + 'StremingPrepare', onSuccess, onError);
     },
     Dispacher: function() {
-        $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
         //AGREGAR tu codigo 
+        estaDespachado = true;
+        console.log("despachando");
+        // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
+    },
+    Finish: function() {
+        if (estaDespachado) {
+            redirectFinish();
+        }
     },
     onSuccess: function(data) {
 

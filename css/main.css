@@ -1,8 +1,10 @@
 body {
-  font-family: sans-serif;
+    font-family: sans-serif;
+    display: block;
+    margin: 0px !important;
 }
 
 video {
-  max-width: 100%;
-  width: 320px;
+    max-width: 100%;
+    width: 120px;
 }
