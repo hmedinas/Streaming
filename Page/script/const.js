@@ -28,6 +28,7 @@ Proy.CocaCola = {
     },
     Readmensaje: function() {
         socketes.on('newMessage', function(msg) {
+            console.log("aaaaaa");
             var s = msg.split('|');
             if (s[0] == _Device) {
                 return;
@@ -60,7 +61,9 @@ Proy.CocaCola = {
     Video: function() {
         //AGREGAR tu codigo
         if (estaCargando) {
-            redirectVideo();
+            // redirectVideo();
+            location.href = "Video.html";
+            enviarSenial();
         }
     },
     Prepare: function() {

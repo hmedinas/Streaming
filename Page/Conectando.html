@@ -19,12 +19,14 @@
         <br><br><br>
         <h4>Esperando...</h4>
         <!-- Provisional -->
-        <button onclick="redirect()">Saltar cargando</button>
+        <button onclick="redirectVideo()">Saltar cargando</button>
     </div>
 
 </body>
 
 <script>
+    var estaCargando = false;
+
     function redirectVideo() {
         location.href = "Video.html";
     }
@@ -36,14 +38,15 @@
 <script src="script/const.js"></script>
 
 <script>
-    var estaCargando = false;
     //Leer mensajes y subscripcion a socket
 
     Proy.CocaCola.Readmensaje();
 
-    setTimeout(function() {
-        Proy.CocaCola.SendMessage(Proy.TipMensaje.Video);
-    }, 5 * 1000);
+    enviarSenial() {
+        setTimeout(function() {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Video);
+        }, 5 * 1000);
+    }
 </script>
 
 </html>
