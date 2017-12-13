@@ -1,5 +1,5 @@
 var _URL = 'innova.vservers.es:8090';
-var _Device = '5678';
+var _Device = idMaquina;
 var socketes = io.connect('http://innova.vservers.es:8090');
 var WebService = 'http://127.0.0.1:5000/api/'
 var estaPulsadoContacto = false;
@@ -48,7 +48,7 @@ Proy.CocaCola = {
     },
     Saludo: function() {
         //AGREGAR tu codigo
-        dialogIniciar();
+        redirectCondicionesRemoto();
     },
     Video: function() {
         //AGREGAR tu codigo

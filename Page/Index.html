@@ -8,6 +8,7 @@
     <link href="style/css/main.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <title>..:: DIMATICA ::..</title>
+    <script src="script/varGlobales.js"></script>
 
     <style>
         .ocultar {
@@ -62,8 +63,6 @@
 
 </body>
 
-<script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
-<script src="script/const.js"></script>
 
 <script>
     //Leer mensajes y subscripcion a socket
@@ -73,14 +72,22 @@
     //     console.log("saludossss");
     // });
 
-
-    function redirect() {
-        location.href = "Condiciones.html";
+    function redirectCondicionesLocal() {
+        location.href = "CondicionesLocal.html";
     }
 
+    function redirectCondicionesRemoto() {
+        location.href = "CondicionesRemoto.html";
+    }
+</script>
+
+<script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
+<script src="script/const.js"></script>
+
+<script>
     function saludar() {
         Proy.CocaCola.SendMessage(Proy.TipMensaje.Saludo);
-        redirect();
+        redirectCondicionesLocal();
     }
 
     function iniciar() {
@@ -88,6 +95,5 @@
         redirect();
     }
 </script>
-
 
 </html>
