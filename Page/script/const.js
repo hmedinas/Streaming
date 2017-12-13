@@ -9,8 +9,11 @@ var Proy = Proy || {};
 Proy.TipMensaje = {};
 Proy.CocaCola = {};
 
+sessionStorage['Condiciones'] = '';
+
 Proy.TipMensaje = {
     Saludo: 'Saludo',
+    Condiciones: 'Condiciones',
     Conexion: 'Conexion',
     Video: 'Video',
     Prepare: 'Prepare',
@@ -27,14 +30,18 @@ Proy.CocaCola = {
         socketes.emit('newMessage', msg)
     },
     Readmensaje: function() {
+        sessionStorage['Condiciones'] = false;
         socketes.on('newMessage', function(msg) {
             var s = msg.split('|');
             if (s[0] == _Device) {
                 return;
             } else {
-                console.log("aaaaaa");
+                console.log(msg);
                 if (s[1] == Proy.TipMensaje.Saludo)
                     Proy.CocaCola.Saludo();
+                if (s[1] == Proy.TipMensaje.Condiciones) {
+                    sessionStorage['Condiciones'] = true;
+                }
                 if (s[1] == Proy.TipMensaje.Conexion)
                     Proy.CocaCola.Conexion();
                 if (s[1] == Proy.TipMensaje.Video)
@@ -57,14 +64,17 @@ Proy.CocaCola = {
     Conexion: function() {
         //AGREGAR tu codigo
         estaCargando = true;
+        Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
     },
     Video: function() {
         //AGREGAR tu codigo
-        if (estaCargando) {
-            console.log("Video");
-            location.href = "Video.html";
-            SendMessage(Proy.TipMensaje.Video);
-        }
+        // if (estaCargando) {
+        Proy.CocaCola.SendMessage(Proy.TipMensaje.Video);
+        console.log("Video");
+        return;
+        location.href = "Video.html";
+
+        // }
     },
     Prepare: function() {
         //AGREGAR tu codigo

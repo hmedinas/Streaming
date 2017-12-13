@@ -29,8 +29,13 @@
     Proy.CocaCola.Readmensaje();
 
     function redirect() {
-        location.href = "Conectando.html";
-        Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
+        if (sessionStorage['Condiciones'] == true) {
+            location.href = "Conectando.html";
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
+        } else {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Condiciones);
+        }
+
     }
 
     $('.destino').html(destino.toUpperCase());
