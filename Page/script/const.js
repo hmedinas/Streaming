@@ -28,11 +28,11 @@ Proy.CocaCola = {
     },
     Readmensaje: function() {
         socketes.on('newMessage', function(msg) {
-            console.log("aaaaaa");
             var s = msg.split('|');
             if (s[0] == _Device) {
                 return;
             } else {
+                console.log("aaaaaa");
                 if (s[1] == Proy.TipMensaje.Saludo)
                     Proy.CocaCola.Saludo();
                 if (s[1] == Proy.TipMensaje.Conexion)
@@ -61,14 +61,16 @@ Proy.CocaCola = {
     Video: function() {
         //AGREGAR tu codigo
         if (estaCargando) {
-            redirectVideo();
+            console.log("Video");
+            location.href = "Video.html";
+            SendMessage(Proy.TipMensaje.Video);
         }
     },
     Prepare: function() {
         //AGREGAR tu codigo
         console.log("preparado");
         if (!estaPreparado) {
-            dialogMano();
+            // dialogMano();
         }
 
         // $getJSON(WebService + 'StremingPrepare', onSuccess, onError);
