@@ -16,6 +16,7 @@ Proy.TipMensaje = {
     Condiciones: 'Condiciones',
     Conexion: 'Conexion',
     Timer: 'Timer',
+    Timer2: 'Timer2',
     Video: 'Video',
     Prepare: 'Prepare',
     Dispacher: 'Dispacher',
@@ -46,6 +47,8 @@ Proy.CocaCola = {
                 if (s[1] == Proy.TipMensaje.Timer) {
                     Proy.CocaCola.Timer();
                 }
+                if (s[1] == Proy.TipMensaje.Timer2)
+                    Proy.CocaCola.Timer2();
                 if (s[1] == Proy.TipMensaje.Conexion)
                     Proy.CocaCola.Conexion();
                 if (s[1] == Proy.TipMensaje.Video)
@@ -72,9 +75,14 @@ Proy.CocaCola = {
     },
     Timer: function() {
         setTimeout(function() {
-            Proy.CocaCola.SendMessage(Proy.TipMensaje.Timer);
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Timer2);
             location.href = "Video.html";
         }, 4000);
+    },
+    Timer2: function() {
+        setTimeout(function() {
+            location.href = "Video.html";
+        }, 2000);
     },
     Video: function() {
         //AGREGAR tu codigo
