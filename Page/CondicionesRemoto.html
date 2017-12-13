@@ -30,10 +30,12 @@
 
     function redirect() {
         if (sessionStorage['Condiciones'] == true) {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Timer);
             location.href = "Conectando.html";
-            Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
+
         } else {
             Proy.CocaCola.SendMessage(Proy.TipMensaje.Condiciones);
+            location.href = "Conectando.html";
         }
 
     }

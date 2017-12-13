@@ -15,6 +15,7 @@ Proy.TipMensaje = {
     Saludo: 'Saludo',
     Condiciones: 'Condiciones',
     Conexion: 'Conexion',
+    Timer: 'Timer',
     Video: 'Video',
     Prepare: 'Prepare',
     Dispacher: 'Dispacher',
@@ -42,6 +43,9 @@ Proy.CocaCola = {
                 if (s[1] == Proy.TipMensaje.Condiciones) {
                     sessionStorage['Condiciones'] = true;
                 }
+                if (s[1] == Proy.TipMensaje.Timer) {
+                    Proy.CocaCola.Timer();
+                }
                 if (s[1] == Proy.TipMensaje.Conexion)
                     Proy.CocaCola.Conexion();
                 if (s[1] == Proy.TipMensaje.Video)
@@ -65,6 +69,12 @@ Proy.CocaCola = {
         //AGREGAR tu codigo
         estaCargando = true;
         Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
+    },
+    Timer: function() {
+        setTimeout(function() {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Timer);
+            location.href = "Video.html";
+        }, 4000);
     },
     Video: function() {
         //AGREGAR tu codigo

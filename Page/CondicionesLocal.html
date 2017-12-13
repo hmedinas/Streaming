@@ -28,8 +28,15 @@
     Proy.CocaCola.Readmensaje();
 
     function redirect() {
-        Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
-        location.href = "Conectando.html";
+        if (sessionStorage['Condiciones'] == true) {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Timer);
+            location.href = "Conectando.html";
+
+        } else {
+            Proy.CocaCola.SendMessage(Proy.TipMensaje.Condiciones);
+            location.href = "Conectando.html";
+        }
+
     }
 </script>
 
