@@ -24,6 +24,14 @@
 
 </body>
 
+<script>
+    function redirectVideo() {
+        location.href = "Video.html";
+    }
+
+    $('.destino').html('<b style="color:red">' + destino + '</b>');
+</script>
+
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
 <script src="script/const.js"></script>
 
@@ -36,13 +44,6 @@
     setTimeout(function() {
         Proy.CocaCola.SendMessage(Proy.TipMensaje.Video);
     }, 5 * 1000);
-
-
-    function redirectVideo() {
-        location.href = "Video.html";
-    }
-
-    $('.destino').html('<b style="color:red">' + destino + '</b>');
 </script>
 
 </html>
