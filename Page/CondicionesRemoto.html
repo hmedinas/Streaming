@@ -15,7 +15,7 @@
 <body>
     <div class="text-center">
 
-        <h2 style="color:red">ALGUIEN QUIERE ACERCARSE</h2>
+        <h2 style="color:red">ALGUIEN DE <span class="destino"></span> QUIERE ACERCARSE</h2>
         <p><b>Acepta las condiciones legales</b></p>
         <button id="okButton" onclick="redirect();"><b>ACEPTAR</b></button>
     </div>
@@ -30,7 +30,10 @@
 
     function redirect() {
         location.href = "Conectando.html";
+        Proy.CocaCola.SendMessage(Proy.TipMensaje.Conexion);
     }
+
+    $('.destino').html(destino.toUpperCase());
 </script>
 
 

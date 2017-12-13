@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="text-center">
+    <div class="text-center" onclick="redirect()">
         <h2>Muchas Gracias</h2>
     </div>
 
@@ -21,6 +21,15 @@
 
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
 <script src="script/const.js"></script>
+<script>
+    function redirect() {
+        location.href = "Index.html";
+    }
+
+    setTimeout(function() {
+        redirect();
+    }, 30 * 1000);
+</script>
 
 
 </html>

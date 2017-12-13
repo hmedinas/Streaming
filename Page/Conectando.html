@@ -15,8 +15,9 @@
 <body>
     <div class="text-center">
 
-        <h2>Conectando con Barcelona</h2>
-        <h4>15%</h4>
+        <h2>Conectando en directo con <span class="destino"></span>...</h2>
+        <br><br><br>
+        <h4>Esperando...</h4>
         <!-- Provisional -->
         <button onclick="redirect()">Saltar cargando</button>
     </div>
@@ -27,12 +28,21 @@
 <script src="script/const.js"></script>
 
 <script>
+    var estaCargando = false;
     //Leer mensajes y subscripcion a socket
+
     Proy.CocaCola.Readmensaje();
 
-    function redirect() {
+    setTimeout(function() {
+        Proy.CocaCola.SendMessage(Proy.TipMensaje.Video);
+    }, 5 * 1000);
+
+
+    function redirectVideo() {
         location.href = "Video.html";
     }
+
+    $('.destino').html('<b style="color:red">' + destino + '</b>');
 </script>
 
 </html>

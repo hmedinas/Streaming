@@ -11,6 +11,7 @@ Proy.CocaCola = {};
 
 Proy.TipMensaje = {
     Saludo: 'Saludo',
+    Conexion: 'Conexion',
     Video: 'Video',
     Prepare: 'Prepare',
     Dispacher: 'Dispacher',
@@ -33,6 +34,8 @@ Proy.CocaCola = {
             } else {
                 if (s[1] == Proy.TipMensaje.Saludo)
                     Proy.CocaCola.Saludo();
+                if (s[1] == Proy.TipMensaje.Conexion)
+                    Proy.CocaCola.Conexion();
                 if (s[1] == Proy.TipMensaje.Video)
                     Proy.CocaCola.Video();
                 if (s[1] == Proy.TipMensaje.Prepare)
@@ -50,9 +53,15 @@ Proy.CocaCola = {
         //AGREGAR tu codigo
         redirectCondicionesRemoto();
     },
+    Conexion: function() {
+        //AGREGAR tu codigo
+        estaCargando = true;
+    },
     Video: function() {
         //AGREGAR tu codigo
-        redirect();
+        if (estaCargando) {
+            redirectVideo();
+        }
     },
     Prepare: function() {
         //AGREGAR tu codigo
