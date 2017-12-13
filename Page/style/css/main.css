@@ -1,26 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
     display: block;
     margin: 0px !important;
+    background: #DC0A23
+}
+
+html,
+body,
+main {
+    height: 100%
+}
+
+body {
+    position: relative
+}
+
+body:before,
+body:after {
+    content: "";
+    background: url(../../img/Estrellas.png) no-repeat;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    height: 300px;
+}
+
+body:before {
+    top: 30px;
+    left: 30px;
+    background-position: left;
+}
+
+body:after {
+    bottom: 30px;
+    right: 30px;
+    background-position: right;
+}
+
+.title {
+    font-size: 2.8em;
+    font-weight: bold;
+    width: 80%;
+    margin: 30px auto;
+}
+
+h2,
+h4 {
+    font-size: 4em;
+    color: #fff
+}
+
+h4 {
+    padding: 30px
+}
+
+p {
+    margin: 20px 0;
+    color: #fff
+}
+
+p,
+button {
+    font-size: 2em
+}
+
+button {
+    padding: 20px 30px;
+    color: #DC0A23;
+    background: #fff;
+    margin: 20px 0
 }
 
 .text-center {
     text-align: center !important;
+    width: 100%
 }
 
-video {
-    max-width: 100%;
-    width: 120px;
-    border-radius: 5px;
+.master-video {
+    z-index: 999999;
 }
 
-#videos,
-#mano {
-    position: absolute;
+.estamos {
+    color: #fff;
+    font-size: 2.2em;
+    text-align: center;
+    position: fixed;
+    bottom: 320px;
     width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 30px;
+    font-weight: bold;
+}
+
+#videos {
+    width: 100%;
+    position: relative
+}
+
+main {
+    padding: 2%;
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #videos #localVideo {
@@ -29,24 +116,16 @@ video {
 
 #videos #remoteVideo {
     width: 100%;
+    height: 650px !important;
     background-color: white;
 }
 
-#mano button {
-    border: 0px;
-    background-color: transparent;
+#mano {
     position: absolute;
-    right: 5%;
-    outline-color: white;
-    margin-top: 7%;
-}
-
-#mano button img {
-    border: 0px;
-}
-
-#miBoton {
-    outline: 0px;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    margin-top: 70px;
 }
 
 .cargando {
@@ -71,141 +150,3 @@ video {
     height: 100%;
     width: 100%;
 }
-
-
-/* DIALOGS */
-
-
-/* #dialogMe {
-    background: #fff;
-    color: #212121;
-    border: 1px solid #212121;
-    border-radius: 2px;
-    padding: 10px;
-}
-
-.dialog {
-    text-align: center;
-    margin: 0px auto;
-    background: #fff;
-    display: none;
-    font-family: 'RobotoDraft', sans-serif;
-    position: fixed;
-    top: 30%;
-    left: 52%;
-    width: 250px;
-    height: 185px;
-    border-radius: 2px;
-    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 25px;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    z-index: 500;
-}
-
-.dialog h2 {
-    color: red !important;
-    margin-top: 0px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-#close {
-    float: right;
-    font-size: 20px;
-    margin-top: -2.5px;
-    cursor: pointer;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-
-#okButton {
-    position: relative;
-    width: 150px;
-    height: 37px;
-    border: none;
-    outline: none;
-    letter-spacing: 3px;
-    cursor: pointer;
-    overflow: hidden;
-    user-select: none;
-    border-radius: 3px;
-    box-shadow: 0 4px 10px 0 red;
-    background: red;
-    color: #fff;
-    font-family: sans-serif;
-}
-
-.dialogBlack {
-    margin: 0;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    background: #000;
-    opacity: 0;
-    z-index: -5;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-} */
-
-
-/* SPINNER */
-
-
-/* .spinner {
-    margin: 100px auto 0;
-    width: 70px;
-    text-align: center;
-}
-
-.spinner>div {
-    width: 18px;
-    height: 18px;
-    background-color: red;
-    border-radius: 100%;
-    display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-}
-
-.spinner .bounce1 {
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
-}
-
-.spinner .bounce2 {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
-}
-
-@-webkit-keyframes sk-bouncedelay {
-    0%,
-    80%,
-    100% {
-        -webkit-transform: scale(0)
-    }
-    40% {
-        -webkit-transform: scale(1.0)
-    }
-}
-
-@keyframes sk-bouncedelay {
-    0%,
-    80%,
-    100% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    40% {
-        -webkit-transform: scale(1.0);
-        transform: scale(1.0);
-    }
-} */

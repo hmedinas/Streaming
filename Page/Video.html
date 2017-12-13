@@ -41,7 +41,7 @@
             <!-- DEBE IR OCULTA, SI SE QUITA NO FUNCIONA -->
             <video id="localVideo" autoplay muted class="animated fadeIn slow" hidden></video><br>
             <!-- </div> -->
-            <button onclick="redirect()">Ir a Gracias</button>
+            <!-- <button onclick="redirect()">Ir a Gracias</button> -->
         </div>
         <br>
         <div id="mano">
@@ -63,6 +63,7 @@
     var estaDespachado = false;
 
     function redirectFinish() {
+        $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
         location.href = "Gracias.html";
     }
 </script>
