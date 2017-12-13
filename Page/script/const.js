@@ -61,9 +61,7 @@ Proy.CocaCola = {
     Video: function() {
         //AGREGAR tu codigo
         if (estaCargando) {
-            // redirectVideo();
-            location.href = "Video.html";
-            enviarSenial();
+            redirectVideo();
         }
     },
     Prepare: function() {
