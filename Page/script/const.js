@@ -97,8 +97,15 @@ Proy.CocaCola = {
     Prepare: function() {
         //AGREGAR tu codigo
         console.log("preparado");
+        sessionStorage['PreparadaRemoto'] = true;
+
+        if (sessionStorage['PreparadaLocal'] == "true" && sessionStorage['PreparadaRemoto'] == "true") {
+            cargando();
+        }
+
         if (!estaPreparado) {
             // dialogMano();
+            console.log("preparado2");
         }
 
         // $getJSON(WebService + 'StremingPrepare', onSuccess, onError);
@@ -106,12 +113,13 @@ Proy.CocaCola = {
     Dispacher: function() {
         //AGREGAR tu codigo 
         estaDespachado = true;
-        cargando();
         console.log("despachando");
         // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
     },
     Finish: function() {
+        console.log("finalizando1");
         if (estaDespachado) {
+            console.log("finalizando2");
             redirectFinish();
         }
     },
