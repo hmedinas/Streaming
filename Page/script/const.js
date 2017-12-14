@@ -108,7 +108,7 @@ Proy.CocaCola = {
             console.log("preparado2");
         }
 
-        // $getJSON(WebService + 'StremingPrepare', onSuccess, onError);
+        // $getJSON(WebService + 'Navidad', onSuccess, onError);
     },
     Dispacher: function() {
         //AGREGAR tu codigo 
@@ -121,6 +121,7 @@ Proy.CocaCola = {
         if (estaDespachado) {
             console.log("finalizando2");
             redirectFinish();
+            $getJSON(WebService + 'Navidad', onSuccess, onError);
         }
     },
     onSuccess: function(data) {

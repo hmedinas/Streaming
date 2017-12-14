@@ -78,6 +78,8 @@
     var c = 0;
 
     function redirectFinish() {
+        sessionStorage['PreparadaLocal'] = true;
+        sessionStorage['PreparadaRemoto'] = false;
         // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
         // location.href = "Gracias.html";
         alert("FINISH");
@@ -145,6 +147,7 @@
                     console.log("recoja2");
                     console.log("RECOJA BEBIDA");
                     redirectFinish();
+                    $getJSON(WebService + 'Navidad', onSuccess, onError);
                     Proy.CocaCola.SendMessage(Proy.TipMensaje.Finish);
                     clearInterval(timer);
                     timePressed = 0;
