@@ -11,16 +11,14 @@
     <script src="script/varGlobales.js"></script>
 
     <style>
-        .ocultar {
-            display: none
-        }
-        
-        .space {
-            height: 30px;
-        }
-        
-        .space2 {
-            height: 1200px;
+        body:before,
+        body:after {
+            content: "";
+            background: none;
+            position: absolute;
+            width: 100%;
+            z-index: 99;
+            height: 300px;
         }
         
         .master-video {
@@ -61,7 +59,7 @@
         <header class="Header"></header>
     </div>
 
-    <div class="estamos">#ESTAMOSMASCERCA</div>
+    <!-- <div class="estamos">#ESTAMOSMASCERCA</div> -->
 </body>
 
 

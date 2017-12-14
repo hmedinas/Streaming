@@ -106,6 +106,7 @@ Proy.CocaCola = {
     Dispacher: function() {
         //AGREGAR tu codigo 
         estaDespachado = true;
+        cargando();
         console.log("despachando");
         // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
     },

@@ -13,36 +13,21 @@
     <link rel="stylesheet" href="style/css/animate.css" />
     <script src="script/lib/jquery-3.2.1.min.js"></script>
     <style>
-        /*body {
-            background-image: url('img/fondo.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            /* background-size: 100%; */
-        }
-        
-        #videos {
-            padding: 4%;
-            width: 92% !important;
-        }*/
+
     </style>
 </head>
 
 <!-- oncontextmenu="return false" onselectstart="return false" ondragstart="return false" -->
 
 <body>
-    <main>
+    <main id="mainVideo">
         <!-- TAMAÑO DE MANO Y DE VIDEO REMOTO: DEFINIDOS CON JAVASCRIPT(QUITARLOS O CAMBIARLOS) -->
+        <div id="header">
+            <span>
+                JUNTAD VUESTRAS MANOS <br> DURANTE 10 SEGUNDOS Y <br>DISFRUTAD DE TU COCA-COLA
+            </span>
+        </div>
         <div id="videos">
-			<p class="title">Juntad vuestras manos durante 10 segundos y disfrutad de tu Coca-cola</p>
-			<div id="mano">
-				<div id="miBoton" class="animated fadeIn slow">
-					<!-- MANO TEMPORAL -->
-					<img src="img/manoroja.png">
-				</div>
-			</div>
-		
             <!-- VIDEO CAMARA LOCAL -->
             <video id="remoteVideo" autoplay class="animated fadeIn slow"></video>
             <!-- VIDEO CAMARA REMOTA -->
@@ -51,11 +36,34 @@
             <!-- </div> -->
             <!-- <button onclick="redirect()">Ir a Gracias</button> -->
         </div>
-        
-        
-        <!-- PROVISIONAL -->
+        <br>
+        <div id="mano">
+            <button id="miBoton" class="animated fadeIn slow">
+                <!-- MANO TEMPORAL -->
+                <img src="https://cdn2.iconfinder.com/data/icons/hawcons-gesture-stroke/32/icon_3_high_five-512.png">
+            </button>
+        </div>
+
+        <div id="directo" class="animated fadeIn slow">
+            <div>
+                <span>EN DIRECTO</span>
+            </div>
+            <div>
+                <span class="destino"></span>
+            </div>
+        </div>
+
+        <div class="loading-page">
+            <div class="counter">
+                <p class="loading"></p>
+                <h1></h1>
+                <hr>
+            </div>
+        </div>
+
+        <!-- .loading-page .counter p loading h1 0% hr -->
     </main>
-	<div class="estamos">#ESTAMOSMASCERCA</div>
+
 
 </body>
 
@@ -65,9 +73,26 @@
     var estaPreparado = false;
     var estaDespachado = false;
 
+    var counter = 0;
+    var c = 0;
+
     function redirectFinish() {
-        $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
+        // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
         location.href = "Gracias.html";
+    }
+
+    function cargando() {
+        $('.counter').css('display', 'block');
+        var i = setInterval(function() {
+            $(".loading-page .counter h1").html(c + "%");
+            $(".loading-page .counter hr").css("width", c + "%");
+            counter = counter + 10;
+            c = c + 10;
+
+            if (counter > 101) {
+                clearInterval(i);
+            }
+        }, 1000);
     }
 </script>
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
@@ -76,14 +101,15 @@
 <script>
     Proy.CocaCola.Readmensaje();
 
-
+    $('.destino').html(destino.toUpperCase());
     //Tamaño de video
     var altoNavegador = $(window).height();
+    var anchoNavegador = $(window).width();
     var altoLocalVideo = $('#localVideo').height();
     console.log(altoNavegador + "/" + altoLocalVideo);
 
-    $('#remoteVideo').height((altoNavegador) * 0.93 + "px");
-    $('#mano img').height((altoLocalVideo) * 3 + "px");
+    // $('body').width((anchoNavegador) + "px");
+    // $('#mano img').height((altoLocalVideo) * 3 + "px");
 
 
     //Evento de mano
@@ -93,18 +119,17 @@
     //CONTROL DE TIEMPO PULSACION MANO
     myBtn.addEventListener('touchstart', function(e) {
         timePressed = 0;
-        $("#dialogMano").css("display", "none");
-        $(".dialogBlack").css("opacity", "1");
         if (timePressed < 1000) {
             console.log("PREPARE");
             // dialogMano();
             estaPreparado = true;
             Proy.CocaCola.SendMessage(Proy.TipMensaje.Prepare);
         }
+        cargando();
         timer = setInterval(function() {
             //aqui tienes el control de cuanto tiempo el boton esta presionado
             timePressed += 1;
-            if (timePressed > 5) {
+            if (timePressed > 10) {
                 // alert("RECOJA BEBIDA");
                 Proy.CocaCola.SendMessage(Proy.TipMensaje.Dispacher);
                 console.log("DISPACHER");
@@ -126,11 +151,13 @@
         estaPreparado = false;
         estaDespachado = false;
         timePressed = 0;
+        counter = 0;
+        console.log("soltado");
+        c = 0;
+        $(".loading-page .counter h1").html(c + "%");
+        $(".loading-page .counter hr").css("width", c + "%");
+        clearInterval(i);
     });
-
-    function redirect() {
-        location.href = "Gracias.html";
-    }
 </script>
 <!-- <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script> -->
 <script src="script/lib/adapter.js"></script>
