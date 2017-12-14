@@ -163,7 +163,7 @@ main {
     color: #fff;
     width: 80%;
     text-align: center;
-    font-size: 1.9em;
+    font-size: 2.3em;
     padding: 0px 10px;
     position: absolute;
     top: 20%;
@@ -173,7 +173,7 @@ main {
 #directo {
     font-size: 1.5em;
     position: absolute;
-    top: 31%;
+    top: 4%;
     right: 4%;
     display: table;
     width: 170px;
