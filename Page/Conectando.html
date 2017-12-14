@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <main>
         <div class="text-center">
             <h3>CONECTANDO EN DIRECTO CON <span class="destino"></span>...</h3>
@@ -35,6 +35,10 @@
     function redirectVideo() {
         location.href = "Video.html";
     }
+
+    setTimeout(function() {
+        location.href = "Index.html";
+    }, 15 * 1000);
 
     $('.destino').html('<b style="color:white">' + destino.toUpperCase() + '</b>');
 </script>

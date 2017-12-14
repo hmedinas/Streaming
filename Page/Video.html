@@ -19,7 +19,7 @@
 
 <!-- oncontextmenu="return false" onselectstart="return false" ondragstart="return false" -->
 
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <main id="mainVideo">
         <!-- TAMAÑO DE MANO Y DE VIDEO REMOTO: DEFINIDOS CON JAVASCRIPT(QUITARLOS O CAMBIARLOS) -->
         <div id="header">
@@ -78,25 +78,27 @@
     var c = 0;
 
     function redirectFinish() {
-        sessionStorage['PreparadaLocal'] = true;
+        sessionStorage['PreparadaLocal'] = false;
         sessionStorage['PreparadaRemoto'] = false;
+        console.log(sessionStorage['PreparadaLocal']);
+        console.log(sessionStorage['PreparadaRemoto']);
         // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
-        // location.href = "Gracias.html";
-        alert("FINISH");
+        location.href = "Gracias.html";
+        // alert("FINISH");
     }
 
     function cargando() {
-        $('.counter').css('display', 'block');
-        var i = setInterval(function() {
-            $(".loading-page .counter h1").html(c + "%");
-            $(".loading-page .counter hr").css("width", c + "%");
-            counter = counter + 10;
-            c = c + 10;
+        // $('.counter').css('display', 'block');
+        // var i = setInterval(function() {
+        //     $(".loading-page .counter h1").html(c + "%");
+        //     $(".loading-page .counter hr").css("width", c + "%");
+        //     counter = counter + 10;
+        //     c = c + 10;
 
-            if (counter > 101) {
-                clearInterval(i);
-            }
-        }, 1000);
+        //     if (counter > 101) {
+        //         clearInterval(i);
+        //     }
+        // }, 1000);
     }
 </script>
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
@@ -122,6 +124,7 @@
 
     //CONTROL DE TIEMPO PULSACION MANO
     myBtn.addEventListener('touchstart', function(e) {
+        console.log("pulsado");
         timePressed = 0;
         if (timePressed < 1000) {
             console.log("PREPARE");
