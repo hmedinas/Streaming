@@ -15,10 +15,13 @@
 <body>
     <main>
         <div class="text-center">
-            <h2>Conectando en directo con <span class="destino"></span>...</h2>
+            <h3>CONECTANDO EN DIRECTO CON <span class="destino"></span>...</h3>
             <br><br><br>
-            <h4>Esperando...</h4>
-            <!-- Provisional -->
+            <!-- <h4>Esperando...</h4> -->
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
             <!-- <button onclick="redirectVideo()">Saltar cargando</button> -->
         </div>
     </main>
@@ -33,7 +36,7 @@
         location.href = "Video.html";
     }
 
-    $('.destino').html('<b style="color:black">' + destino + '</b>');
+    $('.destino').html('<b style="color:white">' + destino.toUpperCase() + '</b>');
 </script>
 
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
