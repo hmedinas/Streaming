@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style/css/animate.css" />
     <script src="script/lib/jquery-3.2.1.min.js"></script>
     <style>
-        body {
+        /*body {
             background-image: url('img/fondo.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -25,7 +25,7 @@
         #videos {
             padding: 4%;
             width: 92% !important;
-        }
+        }*/
     </style>
 </head>
 
@@ -35,6 +35,14 @@
     <main>
         <!-- TAMAÑO DE MANO Y DE VIDEO REMOTO: DEFINIDOS CON JAVASCRIPT(QUITARLOS O CAMBIARLOS) -->
         <div id="videos">
+			<p class="title">Juntad vuestras manos durante 10 segundos y disfrutad de tu Coca-cola</p>
+			<div id="mano">
+				<div id="miBoton" class="animated fadeIn slow">
+					<!-- MANO TEMPORAL -->
+					<img src="img/manoroja.png">
+				</div>
+			</div>
+		
             <!-- VIDEO CAMARA LOCAL -->
             <video id="remoteVideo" autoplay class="animated fadeIn slow"></video>
             <!-- VIDEO CAMARA REMOTA -->
@@ -43,16 +51,11 @@
             <!-- </div> -->
             <!-- <button onclick="redirect()">Ir a Gracias</button> -->
         </div>
-        <br>
-        <div id="mano">
-            <button id="miBoton" class="animated fadeIn slow">
-                <!-- MANO TEMPORAL -->
-                <img src="https://cdn2.iconfinder.com/data/icons/hawcons-gesture-stroke/32/icon_3_high_five-512.png">
-            </button>
-        </div>
+        
+        
         <!-- PROVISIONAL -->
     </main>
-
+	<div class="estamos">#ESTAMOSMASCERCA</div>
 
 </body>
 
