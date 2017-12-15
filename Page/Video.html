@@ -141,6 +141,8 @@
             //aqui tienes el control de cuanto tiempo el boton esta presionado
             timePressed += 1;
             if (timePressed > 10) {
+                c = 0;
+                counter = 0;
                 // alert("RECOJA BEBIDA");
                 console.log("recoja1");
                 Proy.CocaCola.SendMessage(Proy.TipMensaje.Dispacher);
@@ -165,9 +167,10 @@
         estaPreparado = false;
         estaDespachado = false;
         timePressed = 0;
-        counter = 0;
         console.log("soltado");
+        $('.counter').css('display', 'none');
         c = 0;
+        counter = 0;
         $(".loading-page .counter h1").html(c + "%");
         $(".loading-page .counter hr").css("width", c + "%");
         clearInterval(i);
