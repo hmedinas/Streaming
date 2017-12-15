@@ -76,6 +76,7 @@
 
     var counter = 0;
     var c = 0;
+    var i;
 
     function redirectFinish() {
         sessionStorage['PreparadaLocal'] = false;
@@ -88,17 +89,17 @@
     }
 
     function cargando() {
-        // $('.counter').css('display', 'block');
-        // var i = setInterval(function() {
-        //     $(".loading-page .counter h1").html(c + "%");
-        //     $(".loading-page .counter hr").css("width", c + "%");
-        //     counter = counter + 10;
-        //     c = c + 10;
+        $('.counter').css('display', 'block');
+        i = setInterval(function() {
+            $(".loading-page .counter h1").html(c + "%");
+            $(".loading-page .counter hr").css("width", c + "%");
+            counter = counter + 10;
+            c = c + 10;
 
-        //     if (counter > 101) {
-        //         clearInterval(i);
-        //     }
-        // }, 1000);
+            if (counter > 101) {
+                clearInterval(i);
+            }
+        }, 1000);
     }
 </script>
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
