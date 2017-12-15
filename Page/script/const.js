@@ -19,6 +19,7 @@ Proy.TipMensaje = {
     Timer2: 'Timer2',
     Video: 'Video',
     Prepare: 'Prepare',
+    Soltar: 'Soltar',
     Dispacher: 'Dispacher',
     Finish: 'Finish'
 };
@@ -41,12 +42,10 @@ Proy.CocaCola = {
                 console.log(msg);
                 if (s[1] == Proy.TipMensaje.Saludo)
                     Proy.CocaCola.Saludo();
-                if (s[1] == Proy.TipMensaje.Condiciones) {
+                if (s[1] == Proy.TipMensaje.Condiciones)
                     sessionStorage['Condiciones'] = true;
-                }
-                if (s[1] == Proy.TipMensaje.Timer) {
+                if (s[1] == Proy.TipMensaje.Timer)
                     Proy.CocaCola.Timer();
-                }
                 if (s[1] == Proy.TipMensaje.Timer2)
                     Proy.CocaCola.Timer2();
                 if (s[1] == Proy.TipMensaje.Conexion)
@@ -55,6 +54,8 @@ Proy.CocaCola = {
                     Proy.CocaCola.Video();
                 if (s[1] == Proy.TipMensaje.Prepare)
                     Proy.CocaCola.Prepare();
+                if (s[1] == Proy.TipMensaje.Soltar)
+                    sessionStorage['PreparadaRemoto'] = false;
                 if (s[1] == Proy.TipMensaje.Dispacher)
                     Proy.CocaCola.Dispacher();
                 if (s[1] == Proy.TipMensaje.Finish)

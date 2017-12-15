@@ -80,6 +80,9 @@
     //Leer mensajes y subscripcion a socket
     Proy.CocaCola.Readmensaje();
 
+    sessionStorage['PreparadaLocal'] = false;
+    sessionStorage['PreparadaRemoto'] = false;
+
     function saludar() {
         Proy.CocaCola.SendMessage(Proy.TipMensaje.Saludo);
         redirectCondicionesLocal();

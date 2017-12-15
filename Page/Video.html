@@ -79,14 +79,15 @@
     var i;
 
     function redirectFinish() {
-        sessionStorage['PreparadaLocal'] = false;
-        sessionStorage['PreparadaRemoto'] = false;
+
         // $getJSON(WebService + 'StremingDispacher', onSuccess, onError);
         location.href = "Gracias.html";
         // alert("FINISH");
     }
 
     function cargando() {
+        c = 0;
+        counter = 0;
         $('.counter').css('display', 'block');
         i = setInterval(function() {
             $(".loading-page .counter h1").html(c + "%");
@@ -139,10 +140,9 @@
         // cargando();
         timer = setInterval(function() {
             //aqui tienes el control de cuanto tiempo el boton esta presionado
+
             timePressed += 1;
             if (timePressed > 10) {
-                c = 0;
-                counter = 0;
                 // alert("RECOJA BEBIDA");
                 console.log("recoja1");
                 Proy.CocaCola.SendMessage(Proy.TipMensaje.Dispacher);
@@ -166,6 +166,7 @@
         clearInterval(timer);
         estaPreparado = false;
         estaDespachado = false;
+        sessionStorage['PreparadaLocal'] = false;
         timePressed = 0;
         console.log("soltado");
         $('.counter').css('display', 'none');
@@ -174,6 +175,7 @@
         $(".loading-page .counter h1").html(c + "%");
         $(".loading-page .counter hr").css("width", c + "%");
         clearInterval(i);
+        Proy.CocaCola.SendMessage(Proy.TipMensaje.Soltar);
     });
 </script>
 <!-- <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script> -->
