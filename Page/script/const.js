@@ -54,8 +54,12 @@ Proy.CocaCola = {
                     Proy.CocaCola.Video();
                 if (s[1] == Proy.TipMensaje.Prepare)
                     Proy.CocaCola.Prepare();
-                if (s[1] == Proy.TipMensaje.Soltar)
+                if (s[1] == Proy.TipMensaje.Soltar) {
+                    $('.counter').css('display', 'none');
+                    c = 0;
+                    counter = 0;
                     sessionStorage['PreparadaRemoto'] = false;
+                }
                 if (s[1] == Proy.TipMensaje.Dispacher)
                     Proy.CocaCola.Dispacher();
                 if (s[1] == Proy.TipMensaje.Finish)

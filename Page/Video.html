@@ -130,13 +130,16 @@
             console.log("PREPARE");
             sessionStorage['PreparadaLocal'] = true;
 
-            if (sessionStorage['PreparadaLocal'] == "true" && sessionStorage['PreparadaRemoto'] == "true") {
-                cargando();
-            }
+
             // dialogMano();
             estaPreparado = true;
             Proy.CocaCola.SendMessage(Proy.TipMensaje.Prepare);
         }
+
+        if (sessionStorage['PreparadaLocal'] == "true" && sessionStorage['PreparadaRemoto'] == "true") {
+            cargando();
+        }
+
         // cargando();
         timer = setInterval(function() {
             //aqui tienes el control de cuanto tiempo el boton esta presionado
