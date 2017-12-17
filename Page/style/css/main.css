@@ -331,7 +331,7 @@ main {
 .counter {
     position: relative;
     width: 200px;
-    display: none;
+    /* display: none; */
 }
 
 
