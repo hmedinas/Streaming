@@ -173,6 +173,7 @@
 
     //CONTROL DE TIEMPO PULSACION MANO
     myBtn.addEventListener('touchstart', function(e) {
+        $('.counter').css('display', 'none');
         console.log("pulsado");
         timePressed = 0;
         if (timePressed < 1000) {
@@ -185,7 +186,9 @@
         }
 
         if (sessionStorage['PreparadaLocal'] == "true" && sessionStorage['PreparadaRemoto'] == "true") {
-            cargando();
+            setTimeout(function() {
+                cargando();
+            }, 1000);
         }
 
         // cargando();
