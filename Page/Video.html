@@ -13,7 +13,42 @@
     <link rel="stylesheet" href="style/css/animate.css" />
     <script src="script/lib/jquery-3.2.1.min.js"></script>
     <style>
-
+        main {
+            text-align: center;
+        }
+        
+        #capas-container {
+            position: relative;
+            /* background-color: white; */
+            height: 14%;
+            width: 20%;
+            margin: 2px auto;
+            /* border: 1px solid white; */
+        }
+        
+        .capa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+        }
+        
+        #capa-inferior {
+            background-image: url("img/copo_rojo.png");
+        }
+        
+        #capa-superior {
+            background-image: url("img/copo_blanco.png");
+            height: 0%;
+        }
+        
+        #capas-container h1 {
+            position: absolute;
+            right: 10px;
+        }
+    </style>
     </style>
 </head>
 
@@ -55,10 +90,14 @@
 
 
         <div class="loading-page">
-            <div class="counter">
-                <p class="loading"></p>
+            <div class="counter" id="capas-container">
+                <div id="capa-inferior" class="capa">
+
+                </div>
+                <div id="capa-superior" class="capa">
+
+                </div>
                 <h1></h1>
-                <hr>
             </div>
         </div>
 
@@ -74,7 +113,6 @@
     var estaPreparado = false;
     var estaDespachado = false;
 
-    var counter = 0;
     var c = 0;
     var i;
 
@@ -87,19 +125,29 @@
 
     function cargando() {
         c = 0;
-        counter = 0;
         $('.counter').css('display', 'block');
         i = setInterval(function() {
+            console.log("presionando");
+            if (sessionStorage['PreparadaRemoto'] == "false") {
+                c = 0;
+            }
             $(".loading-page .counter h1").html(c + "%");
-            $(".loading-page .counter hr").css("width", c + "%");
-            counter = counter + 10;
+            $('#capa-superior').height(c + "%");
             c = c + 10;
 
-            if (counter > 101) {
-                clearInterval(i);
-            }
         }, 1000);
     }
+
+    var timer = 1;
+    var interval = setInterval(function() {
+        console.log(timer + " segundos");
+        if (timer < 11) {
+            $('#capa-superior').height((timer * 10) + "%");
+        } else {
+            clearInterval(interval);
+        }
+        timer++;
+    }, 1000);
 </script>
 <script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
 <script src="script/const.js"></script>
@@ -130,7 +178,6 @@
             console.log("PREPARE");
             sessionStorage['PreparadaLocal'] = true;
 
-
             // dialogMano();
             estaPreparado = true;
             Proy.CocaCola.SendMessage(Proy.TipMensaje.Prepare);
@@ -143,6 +190,7 @@
         // cargando();
         timer = setInterval(function() {
             //aqui tienes el control de cuanto tiempo el boton esta presionado
+
 
             timePressed += 1;
             if (timePressed > 10) {
@@ -157,6 +205,7 @@
                     $getJSON(WebService + 'Navidad', onSuccess, onError);
                     Proy.CocaCola.SendMessage(Proy.TipMensaje.Finish);
                     clearInterval(timer);
+                    clearInterval(interval);
                     timePressed = 0;
                     estaDespachado = false;
                     estaPreparado = false;
@@ -174,7 +223,6 @@
         console.log("soltado");
         $('.counter').css('display', 'none');
         c = 0;
-        counter = 0;
         $(".loading-page .counter h1").html(c + "%");
         $(".loading-page .counter hr").css("width", c + "%");
         clearInterval(i);

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style/css/main.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>..:: DIMATICA ::..</title>
+    <script src="script/varGlobales.js"></script>
+    <style>
+        main {
+            text-align: center;
+        }
+        
+        #capas-container {
+            position: relative;
+            /* background-color: white; */
+            height: 14%;
+            width: 20%;
+            margin: 2px auto;
+            /* border: 1px solid white; */
+        }
+        
+        .capa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+        }
+        
+        #capa-inferior {
+            background-image: url("img/copo_rojo.png");
+        }
+        
+        #capa-superior {
+            background-image: url("img/copo_blanco.png");
+            height: 0%;
+        }
+    </style>
+</head>
+
+<body onclick="redirect()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <main>
+        <div class="text-center" id="capas-container">
+            <div id="capa-inferior" class="capa">
+
+            </div>
+            <div id="capa-superior" class="capa">
+
+            </div>
+        </div>
+    </main>
+
+    <div class="estamos">#ESTAMOSMASCERCA</div>
+</body>
+
+<script src="http://innova.vservers.es:8090/socket.io/socket.io.js"></script>
+<script src="script/const.js"></script>
+<script>
+    var timer = 1;
+    var interval = setInterval(function() {
+        console.log(timer + " segundos");
+        if (timer < 11) {
+            $('#capa-superior').height((timer * 10) + "%");
+        } else {
+            clearInterval(interval);
+        }
+        timer++;
+    }, 1000);
+</script>
+
+
+</html>

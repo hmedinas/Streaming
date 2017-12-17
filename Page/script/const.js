@@ -57,7 +57,7 @@ Proy.CocaCola = {
                 if (s[1] == Proy.TipMensaje.Soltar) {
                     $('.counter').css('display', 'none');
                     c = 0;
-                    counter = 0;
+                    clearInterval(i);
                     sessionStorage['PreparadaRemoto'] = false;
                 }
                 if (s[1] == Proy.TipMensaje.Dispacher)
