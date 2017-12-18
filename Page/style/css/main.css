@@ -133,7 +133,9 @@ main {
 }
 
 #videos #localVideo {
-    width: 25%;
+    width: 100%;
+    height: 650px !important;
+    background-color: #fff;
 }
 
 #videos #remoteVideo {
@@ -224,11 +226,12 @@ main {
     text-align: center;
 }
 
-#localVideo {
+
+/* #localVideo {
     position: absolute;
     top: 5.5%;
     left: 8%;
-}
+} */
 
 .video-container {
     position: relative;

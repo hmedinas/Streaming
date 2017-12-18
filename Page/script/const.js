@@ -56,7 +56,7 @@ Proy.CocaCola = {
                     Proy.CocaCola.Prepare();
                 if (s[1] == Proy.TipMensaje.Soltar) {
                     $('.counter').css('display', 'none');
-                    c = 0;
+                    c = 10;
                     timePressed = 0;
                     $(".loading-page .counter h1").html(c + "%");
                     $('#capa-superior').height(c + "%");

@@ -47,7 +47,7 @@
         
         #capas-container h1 {
             position: absolute;
-            right: -50%;
+            right: -80%;
             top: 60%;
         }
     </style>
@@ -115,7 +115,7 @@
     var estaPreparado = false;
     var estaDespachado = false;
 
-    var c = 0;
+    var c = 10;
     var i;
 
     function redirectFinish() {
@@ -126,12 +126,12 @@
     }
 
     function cargando() {
-        c = 0;
+        c = 10;
         $('.counter').css('display', 'block');
         i = setInterval(function() {
             console.log("presionando");
             if (sessionStorage['PreparadaRemoto'] == "false") {
-                c = 0;
+                c = 10;
             }
             $(".loading-page .counter h1").html(c + "%");
             $('#capa-superior').height(c + "%");
@@ -174,7 +174,7 @@
 
     //CONTROL DE TIEMPO PULSACION MANO
     myBtn.addEventListener('touchstart', function(e) {
-        $('.counter').css('display', 'none');
+        // $('.counter').css('display', 'none');
         console.log("pulsado");
         timePressed = 0;
         if (timePressed < 1000) {
@@ -198,7 +198,7 @@
 
 
             timePressed += 1;
-            if (timePressed > 10) {
+            if (timePressed > 11) {
                 // alert("RECOJA BEBIDA");
                 console.log("recoja1");
                 Proy.CocaCola.SendMessage(Proy.TipMensaje.Dispacher);
@@ -228,7 +228,7 @@
         sessionStorage['PreparadaLocal'] = false;
         Proy.CocaCola.SendMessage(Proy.TipMensaje.Soltar);
         $('.counter').css('display', 'none');
-        c = 0;
+        c = 10;
         $(".loading-page .counter h1").html(c + "%");
         $(".loading-page .counter hr").css("width", c + "%");
         clearInterval(i);
