@@ -1,6 +1,6 @@
-var _URL = 'innova.vservers.es:8090';
+var _URL = 'proyectodimaticacc.com:8090';
 var _Device = idMaquina;
-var socketes = io.connect('http://innova.vservers.es:8090');
+var socketes = io.connect('https://proyectodimaticacc.com:8090');
 var WebService = 'http://127.0.0.1:5000/api/'
 var estaPulsadoContacto = false;
 
