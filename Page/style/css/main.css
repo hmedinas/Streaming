@@ -43,6 +43,12 @@ body:after {
     background-position: right;
 }
 
+html,
+body {
+    -ms-content-zooming: none;
+    touch-action: none;
+}
+
 .title {
     font-size: 2.8em;
     font-weight: bold;
@@ -331,7 +337,7 @@ main {
 .counter {
     position: relative;
     width: 200px;
-    /* display: none; */
+    display: none;
 }
 
 
