@@ -12,51 +12,12 @@
     <link rel="stylesheet" href="style/css/main.css" />
     <link rel="stylesheet" href="style/css/animate.css" />
     <script src="script/lib/jquery-3.2.1.min.js"></script>
-    <style>
-        main {
-            text-align: center;
-        }
-        
-        #capas-container {
-            position: relative;
-            /* background-color: white; */
-            height: 27%;
-            width: 19%;
-            margin: 2px auto;
-            /* border: 1px solid white; */
-        }
-        
-        .capa {
-            position: absolute;
-            top: 20%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
-        
-        #capa-inferior {
-            background-image: url("img/copo_rojo.png");
-        }
-        
-        #capa-superior {
-            background-image: url("img/copo_blanco.png");
-            height: 0%;
-        }
-        
-        #capas-container h1 {
-            position: absolute;
-            right: -80%;
-            top: 60%;
-        }
-    </style>
-    </style>
+
 </head>
 
 <!-- oncontextmenu="return false" onselectstart="return false" ondragstart="return false" -->
 
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" class="bodyVideo bodyAdornos">
     <main id="mainVideo">
         <!-- TAMAÑO DE MANO Y DE VIDEO REMOTO: DEFINIDOS CON JAVASCRIPT(QUITARLOS O CAMBIARLOS) -->
         <div id="header">
@@ -64,30 +25,34 @@
                 JUNTAD VUESTRAS MANOS <br> DURANTE 10 SEGUNDOS Y <br>DISFRUTAD DE TU COCA-COLA
             </span>
         </div>
-        <div id="videos">
-            <!-- VIDEO CAMARA LOCAL -->
-            <video id="remoteVideo" autoplay class="animated fadeIn slow"></video>
-            <!-- VIDEO CAMARA REMOTA -->
-            <!-- DEBE IR OCULTA, SI SE QUITA NO FUNCIONA -->
-            <video id="localVideo" autoplay muted class="animated fadeIn slow" hidden></video><br>
-            <!-- </div> -->
-            <!-- <button onclick="redirect()">Ir a Gracias</button> -->
-            <div id="directo" class="animated fadeIn slow">
-                <div>
-                    <span>EN DIRECTO</span>
-                </div>
-                <div>
-                    <span class="destino"></span>
+        <div class="contenedorVideo">
+            <div id="videos">
+                <!-- VIDEO CAMARA LOCAL -->
+                <!-- <video id="remoteVideo" autoplay class="animated fadeIn slow"></video> -->
+                <iframe id="remoteVideo" src="https://encuestas.centrocorreoslabs.com/video/test/index.html?Dimatica1" autoplay class="animated fadeIn slow"></iframe>
+                <!-- VIDEO CAMARA REMOTA -->
+                <!-- DEBE IR OCULTA, SI SE QUITA NO FUNCIONA -->
+                <video id="localVideo" autoplay muted class="animated fadeIn slow" hidden></video><br>
+                <!-- </div> -->
+                <!-- <button onclick="redirect()">Ir a Gracias</button> -->
+                <div id="directo" class="animated fadeIn slow">
+                    <div>
+                        <span>EN DIRECTO</span>
+                    </div>
+                    <div>
+                        <span class="destino"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div id="mano">
-            <button id="miBoton" class="animated fadeIn slow">
+
+            <div id="mano">
+                <button id="miBoton" class="animated fadeIn slow">
                 <!-- MANO TEMPORAL -->
-                <img src="img/manoroja.png">
+                <img src="img/mano.gif">
             </button>
+            </div>
         </div>
+
 
 
 
@@ -105,7 +70,7 @@
 
         <!-- .loading-page .counter p loading h1 0% hr -->
     </main>
-
+    <div class="estamos">#ESTAMOSMASCERCA</div>
 
 </body>
 
@@ -151,7 +116,7 @@
     //     timer++;
     // }, 1000);
 </script>
-<script src="https://proyectodimaticacc.com:8080/socket.io/socket.io.js"></script>
+<script src="https://proyectodimaticacc.com:8090/socket.io/socket.io.js"></script>
 <script src="script/const.js"></script>
 
 <script>

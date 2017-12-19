@@ -74,6 +74,7 @@ Proy.CocaCola = {
     },
     Saludo: function() {
         //AGREGAR tu codigo
+        console.log("ckjndjwedwe");
         redirectCondicionesRemoto();
     },
     Conexion: function() {

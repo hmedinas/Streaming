@@ -12,20 +12,15 @@
 
 </head>
 
-<body onclick="redirect()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-    <main>
-        <div class="text-center">
-            <h4 class="title">
-                MUCHAS GRACIAS POR DEMOSTRAR QUE ESTAMOS MÁS CERCA DE LO QUE CREEMOS
-            </h4>
-            <h3>¡FELIZ NAVIDAD!</h3>
-        </div>
-    </main>
+<body onclick="redirect()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" class="bodyVacio">
+    <div class="fondo">
+        <video id="video" class="master-video" autoplay="autoplay" loop="loop" src="video/agradecimiento.mp4"></video>
 
-    <div class="estamos">#ESTAMOSMASCERCA</div>
+    </div>
+
 </body>
 
-<script src="https://proyectodimaticacc.com:8080/socket.io/socket.io.js"></script>
+<script src="https://proyectodimaticacc.com:8090/socket.io/socket.io.js"></script>
 <script src="script/const.js"></script>
 <script>
     sessionStorage['PreparadaLocal'] = false;
